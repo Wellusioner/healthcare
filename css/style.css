@@ -53,6 +53,9 @@ body{
   overflow-x: hidden;
 }
 
+body.overflowed {
+  overflow-y: hidden;
+}
 /*general style*/
 :root{
   --primaryColor: #1F1534;
@@ -174,10 +177,7 @@ body{
   background-color: #fff;
   color: var(--primaryBlue) !important;
 }
-.button-animated:hover{
-  animation: puls 0.4s forwards;
-  box-shadow: 0 0 0 rgba(69,143,246, 0.6);
-}
+
 @keyframes puls{
   to{
     box-shadow: 0 0 0 12px rgba(69,143,246, 0);
@@ -187,19 +187,28 @@ body{
 
 
 header{
-  padding-top: 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255,255,255, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 11;
+}
+.header .header-logo{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 header .menu-link{
   margin-left: 20px;
-  padding: 12px 3px;
+  padding: 25px 3px;
   color: var(--primaryColor);
   opacity: 0.5;
   transition: opacity var(--time);
   font-size: 18px;
   font-weight: 500;
 }
-header .menu-link.active,
-header .menu-link:hover{
+header .menu-link.active{
   opacity: 1;
 }
 .main-banner{
@@ -408,9 +417,7 @@ header .menu-link:hover{
   transform: translateX(0);
   transition: transform var(--time);
 }
-.blog-item .blog-link:hover img{
-  transform: translateX(3px);
-}
+
 
 .footer{
   background-image: url('../images/pattern2.svg'), linear-gradient(15deg, #5A98F2, #67C3F3);
@@ -435,6 +442,151 @@ header .menu-link:hover{
   left: 0;
   transition: left var(--time);
 }
-.footer .footer-link:hover{
-  left: 2px;
+
+
+
+
+/*Media*/
+
+/*For animation*/
+@media (min-width: 768px){
+  .button-animated:hover{
+    animation: puls 0.4s forwards;
+    box-shadow: 0 0 0 rgba(69,143,246, 0.6);
+  }
+  header .menu-link:hover{
+    opacity: 1;
+  }
+  .blog-item .blog-link:hover img{
+    transform: translateX(3px);
+  }
+  .footer .footer-link:hover{
+    left: 2px;
+  }
+}
+
+/*Sidebar and fixed header*/
+@media (max-width: 767px){
+  
+  .title{
+    font-size: 30px;
+    line-height: 40px;
+  }
+  body{
+    background-color: #fefeff !important;
+  }
+  .header{
+    border-bottom: 1px solid #F0F3F6;
+  }
+  .header .header-menu{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 300px;
+    background-color: rgba(69,143,246, 0.9);
+    transition: transform var(--time);
+    transform: translateX(-100%);
+    padding: 30px 20px;
+    z-index: 2;
+  }
+  .header .menu-link{
+    color: #fff;
+    opacity: 0.8;
+    padding: 5px 0;
+    margin-bottom: 10px;
+  }
+  .header .hamburger{
+    position: relative;
+    height: 3px;
+    width: 30px;
+    background-color: var(--primaryBlue);
+    cursor: pointer;
+    border: 4px solid #fff;
+    box-sizing: content-box;
+  }
+  .header .hamburger::before,
+  .header .hamburger::after{
+    position: absolute;
+    content: '';
+    height: 3px;
+    width: 30px;
+    background-color: var(--primaryBlue);
+    left: 0;
+    top: -7px;
+  }
+  .header .hamburger::after{
+    top: 7px;
+  }
+  .header .close-menu{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+    line-height: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .header .helper{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0, 0.7);
+    z-index: 1;
+    transition: opacity var(--time);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    
+  }
+  .header.active .header-menu{
+    transform: translateX(0);
+  }
+  .header.active .helper{
+    opacity: 1;
+    pointer-events: visible;
+    visibility: visible;
+  }
+  .no-bg-xs{
+    background: none !important;
+  }
+  
+  .main-banner .banner-box{
+    padding: 120px 0 50px;
+  }
+  .main-banner .banner-box h1 {
+    font-size: 40px;
+  }
+  .feedback-slider{
+    padding: 30px;
+  }
+  .feedback-item .feedback-user{
+    margin-bottom: 20px;
+  }
+  .info-image img{
+    max-width: 80%;
+    margin: auto;
+  }
+  .feedback-section .feedback-title{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .feedback-item .feedback-image{
+    height: 100px;
+    width: 100px;
+  }
+  .blog-group > div{
+    margin-bottom: 30px;
+  }
+  .footer{
+    background: linear-gradient(15deg, #5A98F2, #67C3F3);
+    background-repeat: no-repeat;
+  }
+  .footer .footer-row > div{
+    margin-bottom: 30px;
+  }
 }
