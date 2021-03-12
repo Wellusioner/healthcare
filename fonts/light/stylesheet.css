@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Mulish';
+    src: url('fonts/light/Mulish-Light.eot');
+    src: url('fonts/light/Mulish-Light.eot?#iefix') format('embedded-opentype'),
+        url('fonts/light/Mulish-Light.woff2') format('woff2'),
+        url('fonts/light/Mulish-Light.woff') format('woff'),
+        url('fonts/light/Mulish-Light.ttf') format('truetype'),
+        url('fonts/light/Mulish-Light.svg#Mulish-Light') format('svg');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
