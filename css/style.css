@@ -194,6 +194,7 @@ header{
   background-color: rgba(255,255,255, 0.7);
   backdrop-filter: blur(5px);
   z-index: 11;
+  border-bottom: 1px solid #F0F3F6;
 }
 .header .header-logo{
   padding-top: 10px;
@@ -273,9 +274,7 @@ header .menu-link.active{
 .info-row{
   margin-top: 70px;
 }
-.info-row:nth-child(2n) > .row{
-  flex-direction: row-reverse;
-}
+
 .info-row .info-content{
   padding-top: 30px;
 }
@@ -443,7 +442,25 @@ header .menu-link.active{
   transition: left var(--time);
 }
 
-
+.upBtn{
+  position: fixed;
+  z-index: 9;
+  bottom: 15px;
+  right: 15px;
+  height: 40px;
+  width: 40px;
+  background-color: #fff;
+  color: var(--primaryBlue);
+  border: 2px solid var(--primaryBlue);
+  border-radius: 50%;
+  font-size: 25px;
+  text-align: center;
+  cursor: pointer;
+}
+.upBtn img{
+  display: inline-block;
+  width: 15px;
+}
 
 
 /*Media*/
@@ -465,6 +482,41 @@ header .menu-link.active{
   }
 }
 
+@media (min-width: 992px){
+  .info-row:nth-child(2n) > .row {
+      flex-direction: row-reverse;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px){
+  .no-bg-md{
+    background: none !important;
+  }
+  .main-banner .banner-box{
+    padding-top: 150px;
+    padding-bottom: 50px;
+  }
+  .info-image img {
+    max-width: 400px;
+  }
+  .blog-group > div{
+    margin-bottom: 30px;
+  }
+  .feedback-slider {
+    padding: 30px;
+  }
+  .feedback-item .feedback-user{
+    margin-bottom: 20px;
+    justify-content: center;
+  }
+  .feedback-item .feedback-text {
+    text-align: center;
+  }
+  .footer .footer-row > div {
+    margin-bottom: 30px;
+  }
+}
+
 /*Sidebar and fixed header*/
 @media (max-width: 767px){
   
@@ -475,9 +527,7 @@ header .menu-link.active{
   body{
     background-color: #fefeff !important;
   }
-  .header{
-    border-bottom: 1px solid #F0F3F6;
-  }
+
   .header .header-menu{
     position: fixed;
     left: 0;
@@ -566,6 +616,10 @@ header .menu-link.active{
   }
   .feedback-item .feedback-user{
     margin-bottom: 20px;
+    justify-content: center;
+  }
+  .feedback-item .feedback-text {
+    text-align: center;
   }
   .info-image img{
     max-width: 80%;
